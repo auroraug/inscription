@@ -1,3 +1,5 @@
+// Public Celestia_PRC head to https://docs.celestia.org/nodes/mainnet
+
 require('dotenv').config();
 const { SigningStargateClient, GasPrice, coins } = require("@cosmjs/stargate");
 const { DirectSecp256k1Wallet } = require('@cosmjs/proto-signing');
@@ -10,10 +12,10 @@ async function execute(wallet, fee, numberOfTimes) {
             const address = 'celestia17j8c9ka9gs593k7q70uz80sknezj33lthp45nz'
             const amount = coins(1, "utia");
             const memo = 'data:,{"op":"mint","amt":10000,"tick":"cias","p":"cia-20"}';
-            const rpcEndpoint = process.env.CELESTIA_RPC;
+            const RpcEndpoint = process.env.CELESTIA_RPC;
             const gasPrice = GasPrice.fromString("0.025utia");
             // ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjaWEtMjAifQ
-            const client = await SigningStargateClient.connectWithSigner(rpcEndpoint, wallet, { gasPrice: gasPrice });
+            const client = await SigningStargateClient.connectWithSigner(RpcEndpoint, wallet, { gasPrice: gasPrice });
             const result = await client.sendTokens(address, address, amount, fee, base64FromBytes(Buffer.from(memo, 'utf8')));
             console.log(`${address}, 第 ${i + 1} 次操作成功: ${'https://celenium.io/tx/' + result.transactionHash}`);
             await sleep(1000);
