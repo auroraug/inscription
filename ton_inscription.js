@@ -1,4 +1,4 @@
-// refer to https://github.com/toncenter/tonweb && https://docs.ton.org/develop/dapps/ton-connect/transactions#transfer-with-comment
+// refer to https://github.com/toncenter/tonweb && https://docs.ton.org/develop/dapps/ton-connect/transactions#transfer-with-comment && https://docs.tonano.io/introduction/overview
 // ton explorer https://tonscan.org/
 const {mnemonicToPrivateKey} = require('@ton/crypto')
 const TonWeb = require('tonweb');
